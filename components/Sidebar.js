@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Header from './Header';
 import Footer from './Footer';
 import Image from 'next/image';
-import Toggler from './toggler'
+import Toggler from './Toggler'
 
 
 export default function Sidebar() {
