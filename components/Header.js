@@ -1,13 +1,19 @@
 import Link from 'next/link';
+import { Orbitron } from '@next/font/google'
+
+const orbitron = Orbitron({ subsets: ['latin'] })
+
 
 function Header (props) {
 	return (
 		<header>
-			<h1 class="title">lulupd.me</h1>
-			<h2 class="title">coding and art portfolio</h2>
+			<div className={orbitron.className}>
+				<h1 className="title">lulupd.me</h1>
+				<h2 className="title">coding and art portfolio</h2>
+			</div>
 			<section>
 				<nav>
-					<div class="navbar">
+					<div className="navbar">
 					  <Link href="/">home</Link>
 					  <Link href="/">coding</Link>
 					  <Link href="/">art</Link>

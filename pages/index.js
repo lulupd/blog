@@ -3,29 +3,35 @@ import matter from 'gray-matter';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
+import { Space_Grotesk } from '@next/font/google'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import ReactDom from 'react-dom'
+import { getAllPostTags } from '../lib/tags';
 
-// The Blog Page Content
+const space = Space_Grotesk({ subsets: ['latin'] })
+
 export default function Home({posts}){
+    posts.sort((a, b) => {
+    if (a.frontmatter.date < b.frontmatter.date) {
+      return 1;
+    } else {
+      return -1;
+    }
+    });
     return <div>
         {posts.map(post => {
             const {id, frontmatter, content} = post
             const {title, author, category, date, bannerImage, tags} = frontmatter
-
             //JSX for individual blog listing
             return (
-                <div class="card">
-                  <article key={title}>
-                      <Link href={`/posts/${id}`}>
-                          <h1>{title}</h1>
-                      </Link>
-                      <ReactMarkdown>{content}</ReactMarkdown>
-                      <h3>{author}</h3>
-                      <h3>{date}</h3>
-                  </article>
+                <div className="card" key={title}>
+                    <Link href={`/posts/${id}`}>
+                        <h1>{title}</h1>
+                    </Link>
+                    <ReactMarkdown className="post">{content}</ReactMarkdown>
+                    <h3>{author}</h3>
+                    <h3>{date}</h3>
                 </div>
             );
         })}

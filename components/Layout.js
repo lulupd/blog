@@ -1,15 +1,20 @@
 import Link from 'next/link';
+import Head from 'next/head'
 import Header from './Header';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
 
 export default function Layout({ children }) {
 	return (
-		<div class="base">
+		<div className="base">
+			<Head>
+				<title>portfolio - lucy pires dias</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			</Head>
 			<Header />
 			<main>
 				<Sidebar />
-				<div class="midcolumn">
+				<div className="midcolumn">
 					{children}
 				</div>
 			</main>

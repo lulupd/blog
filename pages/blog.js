@@ -15,14 +15,14 @@ export default function Blog({posts}){
 
             //JSX for individual blog listing
             return (
-            	<article key={title}>
-                	<Link href={`/posts/${id}`}>
-                    	<h1>{title}</h1>
-                	</Link>
-                     <ReactMarkdown>{content}</ReactMarkdown>
-                	<h3>{author}</h3>
-                	<h3>{date}</h3>
-            </article>
+            	<main>
+                        <div className="card">
+                                <h1>{title}</h1>
+                                <h2>{author} || {date}</h2>
+                                <h3>{category} || {tags.join()}</h3>
+                                <ReactMarkdown>{content}</ReactMarkdown>
+                        </div>
+                </main>
             );
         })}
     </main>

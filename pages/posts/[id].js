@@ -1,22 +1,23 @@
 import fs from 'fs';
 import matter from 'gray-matter';
+import { Space_Grotesk } from '@next/font/google'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import ReactDom from 'react-dom'
 
+const space = Space_Grotesk({ subsets: ['latin'] })
+
 export default function Post({frontmatter, content}) {
 	const {title, author, category, date, bannerImage, tags} = frontmatter
-
 	return (
-		<main>
-			<div class="card">
-				<img src={bannerImage}/>
+		<div>
+			<div className="card">
 		        <h1>{title}</h1>
 		        <h2>{author} || {date}</h2>
 		        <h3>{category} || {tags.join()}</h3>
-		        <ReactMarkdown>{content}</ReactMarkdown>
+		        <ReactMarkdown className="post">{content}</ReactMarkdown>
 		    </div>
-	    </main>
+	    </div>
 	)
 }
 

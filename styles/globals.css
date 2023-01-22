@@ -1,3 +1,21 @@
+@media all and (max-width: 950px) {
+  .midcolumn {
+    width: 900px;
+    margin: auto;
+  }
+
+  .leftcolumn {
+    display: none;
+  }
+
+  .base {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+}
+
 header {
   background-color: #292b2e;
   color: floralwhite;
@@ -24,16 +42,37 @@ header a:active {
   color: gainsboro;
 }
 
+a:link {
+  color: black;
+}
+
+/* visited link */
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* selected link */
+a:active {
+  color: black;
+}
+
 body {
   font-family: 'Roboto Mono', monospace;
   color: black;
-  background-color: #f7f9fc;
+  background-color: #d3dce6;
   padding: 0px;
   margin: 0px;
 }
 
 main {
   display: flex;
+
 }
 
 .navbar a {
@@ -43,24 +82,104 @@ main {
   text-align: center;
   box-sizing: border-box;
 }
+
+.linkbar {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.linkbarContainer {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  gap: 15%;
+
+}
+
 .title {
   padding: 1%;
 }
 
-.base {
-  padding: 0px;
-  margin: 0px;
-}
-
 .leftcolumn {
-  float: left;
-  width: 15%;
+  margin-left: 2%;
+  max-width: 30%;
 }
 
 .midcolumn {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
+
 .card {
   background-color: white;
+  border-radius: 25px;
+  margin: 1%;
+  padding: 1%;
+}
+
+.boxSticky {
+  display: block;
+  background-color: white;
+  color: black;
+  border-radius: 25px;
+  padding: 1%;
+  margin: 5%;
+  position: sticky;
+  top: 15px;
+  align-content: center;
+}
+
+
+.post img {
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.toggler {
+  cursor: pointer;
+  user-select: none;
+}
+
+.open::before {
+  content: "-";
+}
+
+.icon {
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer {
+  background-color: #292b2e;
+  color: floralwhite;
+  font-family: 'Roboto Mono', monospace;
+  padding: 2%;
+}
+.footer a:link {
+  color: floralwhite;
+}
+
+/* visited link */
+.footer a:visited {
+  color: whitesmoke;
+}
+
+/* mouse over link */
+.footer a:hover {
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* selected link */
+.footer a:active {
+  color: gainsboro;
 }
