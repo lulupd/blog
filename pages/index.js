@@ -19,7 +19,7 @@ export default function Home({posts}){
       return -1;
     }
     });
-    return <div>
+    return <div className="cardContainer">
         {posts.map(post => {
             const {id, frontmatter, content} = post
             const {title, author, category, date, bannerImage, tags} = frontmatter

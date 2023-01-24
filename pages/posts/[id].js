@@ -10,7 +10,7 @@ const space = Space_Grotesk({ subsets: ['latin'] })
 export default function Post({frontmatter, content}) {
 	const {title, author, category, date, bannerImage, tags} = frontmatter
 	return (
-		<div>
+		<div className="cardContainer">
 			<div className="card">
 		        <h1>{title}</h1>
 		        <h2>{author} || {date}</h2>

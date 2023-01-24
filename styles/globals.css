@@ -1,6 +1,12 @@
 @media all and (max-width: 950px) {
+  main {
+    flex: 1;
+  }
+  .cardContainer {
+    height: 100%;
+  }
   .midcolumn {
-    width: 900px;
+    width: 95%;
     margin: auto;
   }
 
@@ -10,10 +16,9 @@
 
   .base {
     display: flex;
-    flex-direction: column;
+    min-height: 100vh;
     justify-content: center;
   }
-  
 }
 
 header {
@@ -72,9 +77,16 @@ body {
 
 main {
   display: flex;
-
 }
 
+.base {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerContainer {
+  display: flex;
+}
 .navbar a {
   float: left;
   width: 25%;
@@ -94,7 +106,6 @@ main {
   align-items: center;
   display: flex;
   gap: 15%;
-
 }
 
 .title {
@@ -107,9 +118,7 @@ main {
 }
 
 .midcolumn {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  min-width: 60%;
 }
 
 .card {
@@ -158,11 +167,22 @@ main {
   margin-right: auto;
 }
 
+ .iconHeader {
+  cursor: pointer;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .footer {
   background-color: #292b2e;
   color: floralwhite;
   font-family: 'Roboto Mono', monospace;
   padding: 2%;
+/*  margin-top: 30%;*/
 }
 .footer a:link {
   color: floralwhite;

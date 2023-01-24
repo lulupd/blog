@@ -10,10 +10,10 @@ export default function Toggler({children, name}) {
 			<Link href={`/tags/${name}`}> 
 				{name}
 			</Link>
-			{show && 
+			{ show ? 
 			<ul className="nested">
 				{children}
-			</ul>}						
+			</ul> : null}						
 		</ul>
 		)
 }
