@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Dropdown from './Dropdown'
 import { Orbitron } from '@next/font/google'
 
 const orbitron = Orbitron({ subsets: ['latin'] })
