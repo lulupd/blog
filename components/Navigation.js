@@ -12,13 +12,24 @@ export default function Navigation({posts, children}) {
 			[<a className="toggler" onClick={() => setShow(!show)}>{show ? '-' : '+'}</a>]
 			Navigation
 			{tags.map(tag => {
-				return (
-					<div key={tag} className="nested-container">
-						{ show ? 
-						<Toggler tag={tag}></Toggler> :
-						null}
-					</div>
-				);
+                const splitTags = tag.split("/");
+                if (splitTags.length > 1) {
+                    return (
+                        <div key={tag} className="nested-container">
+                            { show ? 
+                            <Toggler tag={splitTags[0]}></Toggler> :
+                            null}
+                        </div>
+                    );
+                } else {
+                    return (
+                        <div key={tag} className="nested-container">
+                            { show ? 
+                            <Toggler tag={tag}></Toggler> :
+                            null}
+                        </div>
+                    );
+                }
 			})}				
 		</div>
 		)

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import ReactDom from 'react-dom'
+import { getAllPosts } from '@/lib/posts';
 
 const space = Space_Grotesk({ subsets: ['latin'] })
 
@@ -38,9 +39,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({params: {id}}) {
 	const file = fs.readFileSync(`posts/${id}.md`, 'utf-8');
+	const posts = getAllPosts();
 	const {data: frontmatter, content} = matter(file);
 	return {
 		props: {
+			posts,
 			frontmatter,
 			content,
 		}
