@@ -21,7 +21,9 @@ export default function Post({frontmatter, content}) {
 		        <h1>{title}</h1>
 		        <h2>{author} || {date}</h2>
 		        <ReactMarkdown className="post">{content}</ReactMarkdown>
-		        <h3>{category} || {getSplitTags(tags).map((tag) => <Link key={tag} href={`/tags/${tag}`}>{tag} </Link>)}</h3>
+		        <div class="bottom-info">
+					<h3>{category} || {getSplitTags(tags).map((tag) => <Link key={tag} href={`/tags/${tag}`}>{tag} </Link>)}</h3>
+				</div>
 		    </div>
 	    </div>
 	)

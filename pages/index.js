@@ -30,7 +30,7 @@ export default function Home({posts}){
                         <h1>{title}</h1>
                     </Link>
                     <ReactMarkdown className="post">{content}</ReactMarkdown>
-                    <div className="post-info">
+                    <div className="bottom-info">
                         <h3>{author}</h3>
                         <h3>{date}</h3>
                     </div>

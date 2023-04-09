@@ -19,11 +19,11 @@ header a:first-child {
 }
 
 a:link {
-  color: #292b2e;
+  color: #1b1b1b;
 }
 
 a:visited {
-  color: #4e4d4d;
+  color: #333333;
 }
 
 a:hover {
@@ -33,6 +33,10 @@ a:hover {
 
 a:active {
   color: rgb(131, 131, 131);
+}
+
+.title a {
+  color: black;
 }
 
 body {
@@ -104,16 +108,19 @@ nav a {
   margin-bottom: 15px;
   min-height: 300px;
   padding: 2.5% 5%;
+  display: flex;
+  flex-direction: column;
 }
 
-.card h1 {
+.card h1,
+.card h2 {
   margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .boxSticky {
   display: block;
   color: black;
-  border-radius: 50px;
   padding: 5%;
   margin: 0 5%;
   position: sticky;
@@ -122,6 +129,10 @@ nav a {
 
 .boxSticky h2 {
   text-align: center;
+}
+
+.post {
+  flex: 1;
 }
 
 .post img {
@@ -155,10 +166,6 @@ img[src*="cropped"] {
   left: 10px;
 }
 
-.open::before {
-  content: "-";
-}
-
 .icon {
   border-radius: 50%;
   object-fit: cover;
@@ -179,7 +186,7 @@ img[src*="cropped"] {
 }
 
 footer {
-  background-color: #292b2e;
+  background-color: #000000;
   color: floralwhite;
   border-style: double none none none;
   padding: 2%;
