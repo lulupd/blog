@@ -1,10 +1,10 @@
-import Link from 'next/link';
+import {useState, useRef} from 'react';
 import Head from 'next/head'
 import Header from './Header';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
 
-export default function Layout({ children }) {
+export default function Layout({ children, posts }) {
 	return (
 		<div className="base">
 			<Head>
@@ -13,7 +13,7 @@ export default function Layout({ children }) {
 			</Head>
 			<Header />
 			<main>
-				<Sidebar />
+				<Sidebar posts={posts} />
 				<div className="midcolumn">
 					{children}
 				</div>

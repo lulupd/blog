@@ -1,15 +1,14 @@
-import fs from 'fs';
-import matter from 'gray-matter';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head'
-import { Space_Grotesk } from '@next/font/google'
+import { Nunito } from '@next/font/google'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import ReactDom from 'react-dom'
-import { getAllPostTags } from '../lib/tags';
+import { getAllPosts } from '@/lib/posts';
 
-const space = Space_Grotesk({ subsets: ['latin'] })
+
+const space = Nunito({ subsets: ['latin'] })
 
 export default function Home({posts}){
     posts.sort((a, b) => {
@@ -21,37 +20,28 @@ export default function Home({posts}){
     });
     return <div className="cardContainer">
         {posts.map(post => {
-            const {id, frontmatter, content} = post
-            const {title, author, category, date, bannerImage, tags} = frontmatter
-            //JSX for individual blog listing
+            const {id, frontmatter, content} = post;
+            const {title, author, category, date, bannerImage, tags} = frontmatter;
             return (
                 <div className="card" key={title}>
+                    {bannerImage !== "" ? <Image src={bannerImage} width={1000} height={300} className="banner"></Image> : null}
                     <Link href={`/posts/${id}`}>
                         <h1>{title}</h1>
                     </Link>
                     <ReactMarkdown className="post">{content}</ReactMarkdown>
-                    <h3>{author}</h3>
-                    <h3>{date}</h3>
+                    <div className="post-info">
+                        <h3>{author}</h3>
+                        <h3>{date}</h3>
+                    </div>
                 </div>
             );
-        })}
+        })};
     </div>
 }
 
 
 export async function getStaticProps(){
-    const files = fs.readdirSync('posts');
-
-    const posts = files.map((fileName) => {
-        const id = fileName.replace('.md', '');
-        const readFile = fs.readFileSync(`posts/${fileName}`, 'utf-8');
-        const { data: frontmatter, content } = matter(readFile);
-        return {
-          id,
-          frontmatter,
-          content,
-        };
-    });
+    const posts = getAllPosts();
     return {
         props: {
           posts,

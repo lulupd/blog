@@ -1,6 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import { Space_Grotesk } from '@next/font/google'
+import Image from 'next/image';
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import ReactDom from 'react-dom'
@@ -12,17 +13,17 @@ export default function Post({frontmatter, content}) {
 	return (
 		<div className="cardContainer">
 			<div className="card">
+				{bannerImage !== "" ? <Image src={bannerImage} width={1000} height={300} className="banner"></Image> : null}
 		        <h1>{title}</h1>
 		        <h2>{author} || {date}</h2>
-		        <h3>{category} || {tags.join()}</h3>
 		        <ReactMarkdown className="post">{content}</ReactMarkdown>
+		        <h3>{category} || {tags.join()}</h3>
 		    </div>
 	    </div>
 	)
 }
 
 export async function getStaticPaths() {
-
 	const files = fs.readdirSync('posts');
 	const paths = files.map((fileName) => ({
 		params: {

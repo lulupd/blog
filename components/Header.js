@@ -14,7 +14,7 @@ function Header (props) {
 			<section>
 				<nav>
 					<Link href="/">home</Link>
-					<Link href="/">coding</Link>
+					<Link href="/">random post</Link>
 					<Link href="/">other work</Link>
 					<Link href="/">contact</Link>
 				</nav>

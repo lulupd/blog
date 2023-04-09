@@ -1,5 +1,3 @@
-import fs from 'fs';
-import matter from 'gray-matter';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head'
@@ -9,7 +7,7 @@ import ReactMarkdown from 'react-markdown'
 import ReactDom from 'react-dom'
 import { useRouter } from 'next/router';
 import { getAllPostTags } from '../../lib/tags';
-
+import { getAllPosts } from '../../lib/posts';
 
 export default function TagPage({posts}) {
 	posts.sort((a, b) => {
@@ -29,6 +27,7 @@ export default function TagPage({posts}) {
             if (tags.includes(tag)) {
 	            return (
 	                <div className="card" key={title}>
+                    {bannerImage !== "" ? <Image src={bannerImage} width={1000} height={300} className="banner"></Image> : null}
 	                  <Link href={`/posts/${id}`}>
 	                      <h1>{title}</h1>
 	                  </Link>
@@ -44,19 +43,8 @@ export default function TagPage({posts}) {
 }
 
 export async function getStaticPaths() {
-	const files = fs.readdirSync('posts');
-
-    const posts = files.map((fileName) => {
-        const id = fileName.replace('.md', '');
-        const readFile = fs.readFileSync(`posts/${fileName}`, 'utf-8');
-        const { data: frontmatter, content } = matter(readFile);
-        return {
-          id,
-          frontmatter,
-          content,
-        };
-    });
-	const tags = getAllPostTags(posts)
+  const posts = getAllPosts();
+	const tags = getAllPostTags(posts);
 	const paths = tags.map((tagName) => ({
 		params: {
 			tag: tagName
@@ -69,17 +57,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-	const files = fs.readdirSync('posts');
-	const posts = files.map((fileName) => {
-        const id = fileName.replace('.md', '');
-        const readFile = fs.readFileSync(`posts/${fileName}`, 'utf-8');
-        const { data: frontmatter, content } = matter(readFile);
-        return {
-          id,
-          frontmatter,
-          content,
-        };
-    });
+  const posts = getAllPosts();
     return {
         props: {
           posts,
