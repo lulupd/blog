@@ -22,9 +22,10 @@ export default function Home({posts}){
         {posts.map(post => {
             const {id, frontmatter, content} = post;
             const {title, author, category, date, bannerImage, tags} = frontmatter;
+	        const splitBanner = bannerImage.split("|");
             return (
                 <div className="card" key={title}>
-                    {bannerImage !== "" ? <Image src={bannerImage} width={1000} height={300} className="banner"></Image> : null}
+                    {bannerImage !== "" ? <Image src={splitBanner[0]} alt={splitBanner.length > 1 ? splitBanner[1]: ""} width={1000} height={300} className="banner"></Image> : null}
                     <Link href={`/posts/${id}`}>
                         <h1>{title}</h1>
                     </Link>

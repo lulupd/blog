@@ -150,6 +150,11 @@ img[src*="cropped"] {
   user-select: none;
 }
 
+.nested {
+  position: relative;
+  left: 10px;
+}
+
 .open::before {
   content: "-";
 }

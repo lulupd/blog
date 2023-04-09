@@ -6,7 +6,7 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import ReactDom from 'react-dom'
 import { useRouter } from 'next/router';
-import { getAllPostTags } from '../../lib/tags';
+import { getAllPostTags, getSplitTags } from '../../lib/tags';
 import { getAllPosts } from '../../lib/posts';
 
 export default function TagPage({posts}) {
@@ -19,15 +19,17 @@ export default function TagPage({posts}) {
     });
 
     const { asPath } = useRouter();
-    const tag = asPath.replace('/tags/', '')
+    const tag = asPath.replace('/tags/', '');
     return <div>
         {posts.map(post => {
-            const {id, frontmatter, content} = post
-            const {title, author, category, date, bannerImage, tags} = frontmatter
-            if (tags.includes(tag)) {
+            const {id, frontmatter, content} = post;
+            const {title, author, category, date, bannerImage, tags} = frontmatter;
+	          const splitBanner = bannerImage.split("|");
+            const splitTags = getSplitTags(tags);
+            if (splitTags.includes(tag)) {
 	            return (
 	                <div className="card" key={title}>
-                    {bannerImage !== "" ? <Image src={bannerImage} width={1000} height={300} className="banner"></Image> : null}
+                    {bannerImage !== "" ? <Image src={splitBanner[0]} alt={splitBanner.length > 1 ? splitBanner[1]: ""} width={1000} height={300} className="banner"></Image> : null}
 	                  <Link href={`/posts/${id}`}>
 	                      <h1>{title}</h1>
 	                  </Link>
@@ -45,7 +47,8 @@ export default function TagPage({posts}) {
 export async function getStaticPaths() {
   const posts = getAllPosts();
 	const tags = getAllPostTags(posts);
-	const paths = tags.map((tagName) => ({
+  const splitTags = getSplitTags(tags);
+	const paths = splitTags.map((tagName) => ({
 		params: {
 			tag: tagName
 		},

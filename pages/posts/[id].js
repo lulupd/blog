@@ -6,19 +6,22 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import ReactDom from 'react-dom'
 import { getAllPosts } from '@/lib/posts';
+import { getSplitTags } from '../../lib/tags';
+import Link from 'next/link';
 
 const space = Space_Grotesk({ subsets: ['latin'] })
 
 export default function Post({frontmatter, content}) {
-	const {title, author, category, date, bannerImage, tags} = frontmatter
+	const {title, author, category, date, bannerImage, tags} = frontmatter;
+	const splitBanner = bannerImage.split("|");
 	return (
 		<div className="cardContainer">
 			<div className="card">
-				{bannerImage !== "" ? <Image src={bannerImage} width={1000} height={300} className="banner"></Image> : null}
+				{bannerImage !== "" ? <Image src={splitBanner[0]} alt={splitBanner.length > 1 ? splitBanner[1]: ""} width={1000} height={300} className="banner"></Image> : null}
 		        <h1>{title}</h1>
 		        <h2>{author} || {date}</h2>
 		        <ReactMarkdown className="post">{content}</ReactMarkdown>
-		        <h3>{category} || {tags.join()}</h3>
+		        <h3>{category} || {getSplitTags(tags).map((tag) => <Link key={tag} href={`/tags/${tag}`}>{tag} </Link>)}</h3>
 		    </div>
 	    </div>
 	)

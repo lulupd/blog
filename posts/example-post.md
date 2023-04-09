@@ -10,4 +10,4 @@ tags:
 
 As one can see, images can be incorporated into Markdown files and they will display properly.
 
-![](/water.jpg#cropped)
+![Photo of the shore surrounded by the ocean. Taken in Galiano Island, Canada.](/water.jpg#cropped)
