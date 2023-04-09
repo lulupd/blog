@@ -9,11 +9,11 @@ export default function Sidebar() {
 	return (
 		<div className="leftcolumn">
 			<div className="boxSticky">
-				<h2 id="about">about me</h2>
-				<Image src="/logopersonal.png" className="icon" width="100" height="100" />
-				<p>hi! i'm lucy! welcome to my (WIP) portfolio :).</p>
-				<p>i'm a 22 year old computer science student, 3d artist and musician based in minneapolis.</p>
-				<Toggler name='projects'>
+				<h2 id="about">About:</h2>
+				<Image src="/woods.jpg" className="icon" width="100" height="100" />
+				<p>Hi there!</p>
+				<p>This is a blog built with Next.js with support for Markdown posts.</p>
+				<Toggler name='Navigation'>
 					<Toggler name='art'>
 						test
 					</Toggler>

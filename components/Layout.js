@@ -8,7 +8,7 @@ export default function Layout({ children }) {
 	return (
 		<div className="base">
 			<Head>
-				<title>portfolio - lucy pires dias</title>
+				<title>Next.js Sample blog</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			</Head>
 			<Header />

@@ -15,54 +15,61 @@
   }
 
   .base {
-    display: flex;
-    min-height: 100vh;
     justify-content: center;
   }
 }
 
 header {
-  background-color: #292b2e;
-  color: floralwhite;
-  font-family: 'Roboto Mono', monospace;
+  background-color: rgb(255, 255, 255);
+  color: #292b2e;
+  font-family: 'Roboto Mono', sans-serif;
   padding: 2%;
+  border-style: none none solid none;
+  border-width: 2px;
+  box-shadow: 1px 0px 3px#292b2e;
 }
+
+header a {
+  text-decoration: none;
+  border-width: 2px;
+  border-style: none none none solid;
+}
+
+header a:first-child {
+  text-decoration: none;
+  border-style: none;
+}
+
 header a:link {
-  color: floralwhite;
+  color: #292b2e;
 }
 
-/* visited link */
 header a:visited {
-  color: whitesmoke;
+  color: #4e4d4d;
 }
 
-/* mouse over link */
 header a:hover {
-  color: white;
-  text-shadow: 1px 1px 2px black;
+  color: black;
+  text-shadow: 0px 0px 1px #292b2e;
 }
 
-/* selected link */
 header a:active {
-  color: gainsboro;
+  color: rgb(131, 131, 131);
 }
 
 a:link {
   color: black;
 }
 
-/* visited link */
 a:visited {
   color: black;
 }
 
-/* mouse over link */
 a:hover {
   color: white;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 1px 1px 3px black;
 }
 
-/* selected link */
 a:active {
   color: black;
 }
@@ -70,24 +77,25 @@ a:active {
 body {
   font-family: 'Roboto Mono', monospace;
   color: black;
-  background-color: #d3dce6;
+  background-color: #ffffff;
   padding: 0px;
   margin: 0px;
 }
 
 main {
   display: flex;
+  height: 100%;
+  flex: auto;
+  margin-top: 15px;
 }
 
 .base {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.headerContainer {
-  display: flex;
-}
-.navbar a {
+nav a {
   float: left;
   width: 25%;
   padding: 0px 20px;
@@ -109,44 +117,62 @@ main {
 }
 
 .title {
+  width: 100%;
   padding: 1%;
 }
 
 .leftcolumn {
   margin-left: 2%;
-  max-width: 30%;
+  max-width: 20%;
 }
 
 .midcolumn {
   min-width: 60%;
 }
 
-.card {
+.card,
+.boxSticky {
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0px 0px 3px #292b2e;
   background-color: white;
-  border-radius: 25px;
-  margin: 1%;
-  padding: 1%;
+}
+
+.card {
+  margin: 0 1%;
+  margin-bottom: 1%;
+  padding: 5%;
+}
+
+.card h1 {
+  margin-top: 0;
 }
 
 .boxSticky {
   display: block;
-  background-color: white;
   color: black;
   border-radius: 25px;
-  padding: 1%;
-  margin: 5%;
+  padding: 5%;
+  margin: 0 5%;
   position: sticky;
   top: 15px;
-  align-content: center;
 }
 
+.boxSticky h2 {
+  text-align: center;
+}
 
 .post img {
     display: block;
-    float: none;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
+    width: 100%;
+}
+
+img[src*="cropped"] {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .toggler {
@@ -182,7 +208,6 @@ main {
   color: floralwhite;
   font-family: 'Roboto Mono', monospace;
   padding: 2%;
-/*  margin-top: 30%;*/
 }
 .footer a:link {
   color: floralwhite;
