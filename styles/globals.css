@@ -1,7 +1,7 @@
 header {
   background-color: rgb(255, 255, 255);
   color: #292b2e;
-  font-family: 'Roboto Mono', sans-serif;
+  font-family: sans-serif;
   padding: 2%;
   border-style: none none solid none;
   border-width: 2px;
@@ -186,40 +186,25 @@ img[src*="cropped"] {
 }
 
 footer {
-  background-color: #000000;
-  color: floralwhite;
-  border-style: double none none none;
+  background-color: white;
+  color: 000000;
+  font-family: sans-serif;
+  border-style: solid none none none;
+  border-width: 2px;
+  box-shadow: -1px 0px 3px#292b2e;
   padding: 2%;
 }
 
-footer a {
-  font-family: sans-serif;
-}
-
-footer a:link {
-  color:  #b4bac4;
-}
-
-footer a:visited {
-  color: #aeb2b8;
-}
-
-footer a:hover {
-  color: #dcdfe6;
-  text-shadow: 1px 1px 2px black;
-}
-
-footer a:active {
-  color: white;
-}
 
 @media all and (max-width: 950px) {
   main {
     flex: 1;
   }
+
   .cardContainer {
     height: 100%;
   }
+
   .midcolumn {
     width: 95%;
     margin: auto;
@@ -231,5 +216,13 @@ footer a:active {
 
   .base {
     justify-content: center;
+  }
+
+  header a {
+    min-height: 36px;
+  }
+
+  nav a {
+    font-size: 4vw;
   }
 }
