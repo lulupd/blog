@@ -9,12 +9,9 @@ const nunito = Nunito({ subsets: ['latin'] })
 function Header ({posts}) {
 	const router = useRouter();
 	const lastPath = router.asPath;
-	const lastPost = lastPath.replace("/posts/", "");
-	let otherPosts = [];
-	if (posts) {
-		otherPosts = posts.filter((post) => !lastPath.includes(post.id));
-	}
+
 	const getRandomPost = () => {
+		const otherPosts = posts.filter((post) => !lastPath.includes(post.id));
 		let randomIndex = Math.floor(Math.random() * otherPosts.length);
 		let post = otherPosts[randomIndex];
 		if (!lastPath.includes(post.id)) {
@@ -33,7 +30,7 @@ function Header ({posts}) {
 			<section>
 				<nav>
 					<Link href="/">home</Link>
-					<Link onClick={getRandomPost} href="/">random post</Link>
+					<Link onClick={getRandomPost} href={lastPath}>random post</Link>
 					<Link href="/">other work</Link>
 					<Link href="/">contact</Link>
 				</nav>
