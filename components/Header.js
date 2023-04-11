@@ -10,8 +10,10 @@ function Header ({posts}) {
 	const router = useRouter();
 	const lastPath = router.asPath;
 	const lastPost = lastPath.replace("/posts/", "");
-	const otherPosts = posts.filter((post) => !lastPath.includes(post.id));
-
+	let otherPosts = [];
+	if (posts) {
+		otherPosts = posts.filter((post) => !lastPath.includes(post.id));
+	}
 	const getRandomPost = () => {
 		let randomIndex = Math.floor(Math.random() * otherPosts.length);
 		let post = otherPosts[randomIndex];
