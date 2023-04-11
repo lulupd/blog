@@ -1,7 +1,5 @@
-import {useState, useRef} from 'react';
+import {useState} from 'react';
 import Link from 'next/link';
-
-// To-do: Make toggler automatically create its tag tree from existing tags.
 
 export default function Toggler({children, tag}) {
 	const [show, setShow] = useState(false);

@@ -1,10 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Head from 'next/head'
-import { Inter } from '@next/font/google'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import ReactDom from 'react-dom'
 import { useRouter } from 'next/router';
 import { getAllPostTags, getSplitTags } from '../../lib/tags';
 import { getAllPosts } from '../../lib/posts';

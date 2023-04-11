@@ -1,5 +1,4 @@
-import {useState, useRef, useEffect} from 'react';
-import Link from 'next/link';
+import { useState } from 'react';
 import Toggler from './Toggler'
 import { getAllPostTags } from '@/lib/tags';
 

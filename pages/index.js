@@ -1,10 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Head from 'next/head'
 import { Nunito } from '@next/font/google'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import ReactDom from 'react-dom'
 import { getAllPosts } from '@/lib/posts';
 
 

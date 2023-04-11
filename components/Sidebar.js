@@ -1,8 +1,4 @@
-import Link from 'next/link';
-import Header from './Header';
-import Footer from './Footer';
 import Image from 'next/image';
-import Toggler from './Toggler'
 import Navigation from './Navigation';
 
 

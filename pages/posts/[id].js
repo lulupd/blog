@@ -1,15 +1,11 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import { Space_Grotesk } from '@next/font/google'
 import Image from 'next/image';
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import ReactDom from 'react-dom'
 import { getAllPosts } from '@/lib/posts';
 import { getSplitTags } from '../../lib/tags';
 import Link from 'next/link';
-
-const space = Space_Grotesk({ subsets: ['latin'] })
 
 export default function Post({frontmatter, content}) {
 	const {title, author, category, date, bannerImage, tags} = frontmatter;
