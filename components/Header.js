@@ -31,8 +31,8 @@ function Header ({posts}) {
 				<nav>
 					<Link href="/">home</Link>
 					<Link onClick={getRandomPost} href={lastPath}>random post</Link>
-					<Link href="/">other work</Link>
-					<Link href="/">contact</Link>
+					<Link href="/other-work">other work</Link>
+					<Link href="/contact">contact</Link>
 				</nav>
 			</section>
 		</header>
