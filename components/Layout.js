@@ -11,7 +11,7 @@ export default function Layout({ children, posts }) {
 				<title>Next.js Sample blog</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			</Head>
-			<Header />
+			<Header posts={posts}/>
 			<main>
 				<Sidebar posts={posts} />
 				<div className="midcolumn">
